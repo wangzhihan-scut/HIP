@@ -41,6 +41,9 @@ typedef int hipLaunchParm;
         kernelName<<<numblocks, numthreads, memperblock, streamId>>>(__VA_ARGS__);                 \
     } while (0)
 
+#define hipLaunchKernelGGLEx(kernelName, numblocks, numthreads, memperblock, streamId, ...)        \
+    cudaLaunchKernel(kernelName, numblocks, numthreads, memperblock, streamId, __VA_ARGS__);       \
+
 #define hipReadModeElementType cudaReadModeElementType
 
 #ifdef __CUDA_ARCH__
